@@ -37,6 +37,7 @@ li > img {
   height: 10rem;
   border-radius: 50%;
   border: 1px solid var(--main-color);
+  margin-top: 28px;
 }
 
 li > span {
@@ -45,5 +46,24 @@ li > span {
   font-family: var(--third-font);
   font-size: 1.5rem;
   margin-top: 2px;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stack-img {
+  filter: grayscale(100%);
+}
+
+.stack-img:hover{
+  filter: grayscale(0%);
+  transition: 750ms ease-in-out;
+}
+
+.stack-img > img {
+  width: 10em;
+  height: 10em;
 }
  
