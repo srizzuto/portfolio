@@ -1,0 +1,90 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #191919;
+}
+
+header nav {
+  display: block;
+}
+
+header nav div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header nav div img {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  border: 1px solid #e1ebf5;
+  padding: 2px;
+}
+
+header nav div::before {
+  content: 'Data Science';
+  font-size: 1.5rem;
+  font-family: "Water Brush", cursive;
+  color: #e1ebf5;
+}
+
+header nav div::after {
+  content: 'Fullstack Developer';
+  font-size: 1.5rem;
+  font-family: "Water Brush", cursive;
+  color: #e1ebf5;
+}
+
+header nav ul {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  font-family: "Bebas Neue", cursive;
+  color: #e1ebf5;
+  text-decoration: none;
+}
+
+header nav ul a {
+  text-decoration: none;
+  color: #e1ebf5;
+}
+
+main section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+main section p {
+  font-family: "Roboto Condensed", sans-serif;
+  color: #e1ebf5;
+  text-align: justify;
+  padding: 0 1em;
+}
+
+main section p span {
+  color: #ffffe6;
+}
+
+main .my-stack {
+  display: flex;
+  flex-direction: row;
+}
+
+main .my-stack .stack-img img {
+  filter: grayscale(100%);
+  width: 3em;
+  height: 3em;
+}
+
+main .my-stack .stack-img img:hover:active {
+  filter: grayscale(0%);
+  transition: 500ms ease-out;
+}
+/*# sourceMappingURL=style.css.map */
