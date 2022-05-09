@@ -35,20 +35,45 @@
     <section class="sections fade">
       <p>Hey there! My name is <span>Seba</span> and I give you a very welcome to my site. I'm an enthusiastic developer
         who is passionate about coding.</p>
-      <p>Currently I'm living in Buenos Aires, <span>Argentina</span>. I love dogs, sports, chess, books and spend time
+      <p>Currently I'm living in Buenos Aires, <span class="arg">Argentina</span>. I love dogs, sports, chess, books and
+        spend time
         with my family and friends.</p>
-      <p>You'll find a quiet person, who enjoys providing peacefuls and fun working environments. I always try my best
+      <p>You'll find a quiet person, who enjoys providing peaceful and fun working environments. I always try my best
         to become a better version of myself! </p>
     </section>
     <section class="sections fade my-stack">
-      <div class="stack-img">
-        <img src="img/python.png" alt="">
+      <div class="tab">
+        <div class="stack-img" onclick="openStack(event, 'python')">
+          <img src="img/python.png" alt="">
+        </div>
+        <div class="stack-img" onclick="openStack(event, 'ruby')">
+          <img src="img/ruby.png" alt="">
+        </div>
+        <div class="stack-img" onclick="openStack(event, 'javascript')">
+          <img src="img/js.png" alt="">
+        </div>
       </div>
-      <div class="stack-img">
-        <img src="img/ruby.png" alt="">
+      <div id="python" class="tabcontent">
+        <div class="projects">
+          <div class="project-group">
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+          </div>
+          <div class="project-group">
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+            <div><img src="img/keyboard.jpeg" alt=""></div>
+          </div>
+        </div>
       </div>
-      <div class="stack-img">
-        <img src="img/js.png" alt="">
+      <div id="ruby" class="tabcontent">
+        B
+      </div>
+      <div id="javascript" class="tabcontent">
+        C
       </div>
     </section>
     <section class="sections fade">

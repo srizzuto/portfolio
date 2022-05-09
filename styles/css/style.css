@@ -6,6 +6,9 @@
 
 body {
   background-color: #191919;
+  min-width: 320px;
+  min-height: 724px;
+  margin: 2em auto;
 }
 
 header nav {
@@ -19,8 +22,8 @@ header nav div {
 }
 
 header nav div img {
+  aspect-ratio: 1 / 1;
   width: 10em;
-  height: 10em;
   border-radius: 50%;
   border: 1px solid #e1ebf5;
   padding: 2px;
@@ -100,6 +103,21 @@ main section p span {
   color: #ffffe6;
 }
 
+main section p .arg:hover,
+main section p .arg:active {
+  -webkit-background-clip: text;
+  background-image: linear-gradient(60deg, #1180e2 32%, #fbfbfb 49%, #fefe02 51%, #fbfbfb 66%, #1180e2 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+main section p button {
+  border: none;
+  background: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 main .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -118,19 +136,50 @@ main .about-me {
   display: none;
 }
 
-main .my-stack {
+main .my-stack .tab {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  margin: 5px 0 5px 0;
 }
 
-main .my-stack .stack-img img {
+main .my-stack .tab .stack-img img {
   filter: grayscale(100%);
   width: 3em;
   height: 3em;
 }
 
-main .my-stack .stack-img img:hover:active {
+main .my-stack .tab .stack-img img:hover, main .my-stack .tab .stack-img img:active {
   filter: grayscale(0%);
   transition: 500ms ease-out;
+}
+
+main .my-stack .tabcontent {
+  display: none;
+  grid-auto-flow: column;
+  grid-template-columns: 100%;
+}
+
+main .my-stack .tabcontent .projects {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 100% 100%;
+  overflow: hidden;
+}
+
+main .my-stack .tabcontent .projects .project-group {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 0.30rem;
+  margin: 5px;
+}
+
+main .my-stack .tabcontent .projects .project-group div {
+  border-radius: 0.25rem;
+}
+
+main .my-stack .tabcontent .projects .project-group div img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 /*# sourceMappingURL=style.css.map */

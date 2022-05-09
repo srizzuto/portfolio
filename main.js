@@ -25,3 +25,22 @@ function showSlides(n) {
   slides[slideIndex - 1].style.display = "block";
   sections[slideIndex - 1].style.display = "flex";
 }
+
+//Stack Tabs
+function openStack(evt, stackName) {
+
+  var i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("stack-img");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  document.getElementById(stackName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
