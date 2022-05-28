@@ -9,6 +9,11 @@ body {
   min-width: 320px;
   min-height: 637px;
   margin: 0;
+  padding: 1em;
+}
+
+a {
+  cursor: pointer;
 }
 
 header nav {
@@ -87,13 +92,12 @@ header nav ul .next {
   border-radius: 3px 0 0 3px;
 }
 
-main section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+main section iframe {
+  display: none;
 }
 
 main section p {
+  font-size: .95rem;
   font-family: "Roboto Condensed", sans-serif;
   color: #e1ebf5;
   text-align: justify;
@@ -119,6 +123,46 @@ main section p button {
   cursor: pointer;
 }
 
+main section input[type=text],
+main section input[type=email],
+main section select,
+main section textarea {
+  font-family: "Roboto Condensed", sans-serif;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  resize: vertical;
+}
+
+main section textarea {
+  height: 115px;
+}
+
+main section input[type=submit] {
+  display: block;
+  background-color: #e1ebf5;
+  color: #191919;
+  font-family: "Roboto Condensed", sans-serif;
+  margin: auto;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+main section input[type=submit]:hover {
+  background-color: #ffffe6;
+}
+
+main section .container {
+  border-radius: 5px;
+  background-color: #191919;
+  padding: 1em;
+}
+
 main .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -138,10 +182,11 @@ main .about-me {
 }
 
 main .my-stack .tab {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 5px 0 5px 0;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
+  margin: 5px 0;
 }
 
 main .my-stack .tab .stack-img img {
@@ -159,6 +204,7 @@ main .my-stack .tabcontent {
   display: none;
   grid-auto-flow: column;
   grid-template-columns: 100%;
+  margin-top: 1em;
 }
 
 main .my-stack .tabcontent .projects {
@@ -177,14 +223,35 @@ main .my-stack .tabcontent .projects .project-group {
 }
 
 main .my-stack .tabcontent .projects .project-group div {
+  position: relative;
   padding: 2px;
+  background-color: #191919;
+  z-index: 3;
+}
+
+main .my-stack .tabcontent .projects .project-group div h1 {
+  position: absolute;
+  transform: translateY(-50%);
+  margin: 0;
+  top: 1em;
+  left: 0.5em;
+  color: #e1ebf5;
+  font-family: "Bebas Neue", cursive;
+  text-decoration: underline;
+  z-index: 5;
 }
 
 main .my-stack .tabcontent .projects .project-group div img {
-  border-radius: 0.35rem;
+  border-radius: 0.45rem;
   width: 100%;
   height: 100%;
   aspect-ratio: 16 / 9;
+  opacity: 0.6;
+}
+
+main .my-stack .tabcontent .projects .project-group div img:hover, main .my-stack .tabcontent .projects .project-group div img:active {
+  border: 1px solid #e1ebf5;
+  opacity: 1;
 }
 
 main .my-stack .tabcontent .projects .project-group .prev-group {
@@ -197,6 +264,7 @@ main .my-stack .tabcontent .projects .project-group .prev-group {
   background-color: black;
   opacity: 0.3;
   color: #e1ebf5;
+  z-index: 4;
 }
 
 main .my-stack .tabcontent .projects .project-group .next-group {
@@ -208,6 +276,7 @@ main .my-stack .tabcontent .projects .project-group .next-group {
   background-color: black;
   opacity: 0.3;
   color: #e1ebf5;
+  z-index: 4;
 }
 
 main .my-stack .tabcontent .projects .project-group .prev-group:active,
@@ -215,5 +284,193 @@ main .my-stack .tabcontent .projects .project-group .prev-group:hover,
 main .my-stack .tabcontent .projects .project-group .next-group:hover,
 main .my-stack .tabcontent .projects .project-group .next-group:active {
   opacity: 1;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  height: 3em;
+  left: 0;
+  bottom: 0;
+}
+
+footer .info {
+  display: none;
+}
+
+footer .media {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #e1ebf5;
+  padding: 0.5em;
+}
+
+footer .media i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: #e1ebf5;
+}
+
+footer .media i:hover, footer .media i:active {
+  color: #ffffe6;
+}
+
+@media screen and (min-width: 426px) {
+  footer .info {
+    display: none;
+  }
+  main section iframe {
+    display: none;
+  }
+  main .my-stack {
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  main .my-stack .tab {
+    display: grid;
+    grid-auto-flow: row;
+    grid-column: 1;
+    grid-row: 1/4;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+  }
+  main .my-stack .tab .stack-img img {
+    filter: none;
+  }
+  main .my-stack #python {
+    grid-row: 1;
+    grid-column: 2/3;
+  }
+  main .my-stack #ruby {
+    grid-row: 2;
+    grid-column: 2/3;
+  }
+  main .my-stack #javascript {
+    grid-row: 3;
+    grid-column: 2/3;
+  }
+  main .my-stack .tabcontent {
+    display: block;
+    margin: 0;
+  }
+  main .my-stack .tabcontent .projects .project-group {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0;
+  }
+  .container {
+    text-align: center;
+  }
+  input[type=text],
+  input[type=email],
+  select,
+  textarea {
+    font-family: "Roboto Condensed", sans-serif;
+    max-width: 60%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    resize: vertical;
+  }
+  textarea {
+    height: 115px;
+  }
+  input[type=submit] {
+    display: block;
+    background-color: #e1ebf5;
+    color: #191919;
+    font-family: "Roboto Condensed", sans-serif;
+    margin: auto;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=submit]:hover {
+    background-color: #ffffe6;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  body {
+    margin: auto;
+    max-width: 60%;
+  }
+  header nav ul li {
+    display: flex;
+    justify-content: space-around;
+  }
+  main section {
+    justify-content: center;
+    align-items: center;
+  }
+  main section iframe {
+    display: block;
+    margin: 2em auto;
+  }
+  main section .my-stack {
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  main section .my-stack .tab {
+    display: grid;
+    grid-auto-flow: row;
+    grid-column: 1;
+    grid-row: 1/4;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+  }
+  main section .my-stack .tab .stack-img img {
+    filter: none;
+  }
+  main section .my-stack #python {
+    grid-row: 1;
+    grid-column: 2/3;
+  }
+  main section .my-stack #ruby {
+    grid-row: 2;
+    grid-column: 2/3;
+  }
+  main section .my-stack #javascript {
+    grid-row: 3;
+    grid-column: 2/3;
+  }
+  main section .my-stack .tabcontent {
+    display: block;
+    margin: 0;
+  }
+  main section .my-stack .tabcontent .projects .project-group {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0;
+  }
+  footer {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #e1ebf5;
+  }
+  footer .info {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+  }
+  footer .media {
+    border: none;
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+  }
+  footer .media:last-child {
+    border-left: 1px solid gray;
+  }
+  footer span {
+    font-family: "Roboto Condensed", sans-serif;
+    color: #e1ebf5;
+    padding: 1em;
+  }
 }
 /*# sourceMappingURL=style.css.map */

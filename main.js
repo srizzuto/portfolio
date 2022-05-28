@@ -23,7 +23,7 @@ function showSlides(n) {
   }
 
   slides[slideIndex - 1].style.display = "block";
-  sections[slideIndex - 1].style.display = "flex";
+  sections[slideIndex - 1].style.display = "grid";
 }
 
 //Stack Tabs
@@ -43,4 +43,25 @@ function openStack(evt, stackName) {
 
   document.getElementById(stackName).style.display = "block";
   evt.currentTarget.className += " active";
+}
+
+//Form validation
+function validateForm() {
+  let x = document.forms["form"]["email"].value;
+  let y = document.forms["form"]["fullname"].value;
+  let z = document.forms["form"]["subject"].value;
+  if (x == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+
+  if (y == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+
+  if (z == "") {
+    alert("Comment must be filled out");
+    return false;
+  }
 }

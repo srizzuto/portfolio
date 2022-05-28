@@ -20,6 +20,11 @@ body {
   min-width: 320px;
   min-height: 637px;
   margin: 0;
+  padding: 1em;
+}
+
+a {
+  cursor: pointer;
 }
 
 header {
@@ -105,12 +110,15 @@ header {
 }
 
 main {
+
   section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+
+    iframe {
+      display: none;
+    }
 
     p {
+      font-size: .95rem;
       font-family: $font--primary;
       color: $color--main;
       text-align: justify;
@@ -136,6 +144,46 @@ main {
       }
 
     }
+
+    input[type=text],
+    input[type=email],
+    select,
+    textarea {
+      font-family: $font--primary;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 5px;
+      resize: vertical;
+    }
+
+    textarea {
+      height: 115px;
+    }
+
+    input[type=submit] {
+      display: block;
+      background-color: $color--main;
+      color: $color--background;
+      font-family: $font--primary;
+      margin: auto;
+      padding: 1em 2em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: $color--secondary;
+    }
+
+    .container {
+      border-radius: 5px;
+      background-color: $color--background;
+      padding: 1em;
+    }
   }
 
   .fade {
@@ -160,10 +208,11 @@ main {
   .my-stack {
 
     .tab {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      margin: 5px 0 5px 0;
+      display: grid;
+      grid-auto-flow: column;
+      justify-items: center;
+      align-items: center;
+      margin: 5px 0;
 
       .stack-img {
         img {
@@ -184,6 +233,7 @@ main {
       display: none;
       grid-auto-flow: column;
       grid-template-columns: 100%;
+      margin-top: 1em;
 
       .projects {
         display: grid;
@@ -199,13 +249,35 @@ main {
           padding: 5px;
 
           div {
+            position: relative;
             padding: 2px;
+            background-color: $color--background;
+            z-index: 3;
+
+            h1 {
+              position: absolute;
+              transform: translateY(-50%);
+              margin: 0;
+              top: 1em;
+              left: 0.5em;
+              color: $color--main;
+              font-family: $font--main;
+              text-decoration: underline;
+              z-index: 5;
+            }
 
             img {
-              border-radius: 0.35rem;
+              border-radius: 0.45rem;
               width: 100%;
               height: 100%;
               aspect-ratio: 16 / 9;
+              opacity: 0.6;
+
+              &:hover,
+              &:active {
+                border: 1px solid $color--main;
+                opacity: 1;
+              }
             }
           }
 
@@ -219,6 +291,7 @@ main {
             background-color: rgb(0, 0, 0);
             opacity: 0.3;
             color: $color--main;
+            z-index: 4;
           }
 
           .next-group {
@@ -230,6 +303,7 @@ main {
             background-color: rgb(0, 0, 0);
             opacity: 0.3;
             color: $color--main;
+            z-index: 4;
           }
 
           .prev-group:active,
@@ -240,6 +314,260 @@ main {
           }
         }
       }
+    }
+  }
+}
+
+footer {
+
+  position: fixed;
+  width: 100%;
+  height: 3em;
+  left: 0;
+  bottom: 0;
+
+  .info {
+    display: none;
+  }
+
+  .media {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid $color--main;
+    padding: 0.5em;
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+      color: $color--main;
+
+      &:hover,
+      &:active {
+        color: $color--secondary;
+      }
+    }
+  }
+
+}
+
+//media queries
+
+$tablet: 426px;
+$laptop: 769px;
+
+@media screen and (min-width: $tablet) {
+
+  footer {
+    .info {
+      display: none;
+    }
+
+  }
+
+  main {
+    section {
+      iframe {
+        display: none;
+      }
+    }
+
+    .my-stack {
+      grid-template-columns: 15% 85%;
+      grid-template-rows: 1fr 1fr 1fr;
+
+      .tab {
+        display: grid;
+        grid-auto-flow: row;
+        grid-column: 1;
+        grid-row: 1/4;
+        justify-items: center;
+        align-items: center;
+        height: 100%;
+
+        .stack-img {
+          img {
+            filter: none;
+          }
+        }
+      }
+
+      #python {
+        grid-row: 1;
+        grid-column: 2/3;
+      }
+
+      #ruby {
+        grid-row: 2;
+        grid-column: 2/3;
+      }
+
+      #javascript {
+        grid-row: 3;
+        grid-column: 2/3;
+      }
+
+      .tabcontent {
+        display: block;
+        margin: 0;
+
+        .projects {
+
+          .project-group {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  input[type=text],
+  input[type=email],
+  select,
+  textarea {
+    font-family: $font--primary;
+    max-width: 60%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    resize: vertical;
+  }
+
+  textarea {
+    height: 115px;
+  }
+
+  input[type=submit] {
+    display: block;
+    background-color: $color--main;
+    color: $color--background;
+    font-family: $font--primary;
+    margin: auto;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: $color--secondary;
+  }
+}
+
+@media screen and (min-width: $laptop) {
+  body {
+    margin: auto;
+    max-width: 60%;
+  }
+
+  header {
+    nav {
+      ul {
+        li {
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+
+  main {
+    section {
+      justify-content: center;
+      align-items: center;
+
+      iframe {
+        display: block;
+        margin: 2em auto;
+      }
+
+      .my-stack {
+        grid-template-columns: 15% 85%;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        .tab {
+          display: grid;
+          grid-auto-flow: row;
+          grid-column: 1;
+          grid-row: 1/4;
+          justify-items: center;
+          align-items: center;
+          height: 100%;
+
+          .stack-img {
+            img {
+              filter: none;
+            }
+          }
+        }
+
+        #python {
+          grid-row: 1;
+          grid-column: 2/3;
+        }
+
+        #ruby {
+          grid-row: 2;
+          grid-column: 2/3;
+        }
+
+        #javascript {
+          grid-row: 3;
+          grid-column: 2/3;
+        }
+
+        .tabcontent {
+          display: block;
+          margin: 0;
+
+          .projects {
+
+            .project-group {
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid $color--main;
+
+    .info {
+      display: flex;
+      justify-content: space-around;
+      width: 60%;
+    }
+
+    .media {
+      border: none;
+      display: flex;
+      justify-content: space-around;
+      width: 40%;
+
+      &:last-child {
+        border-left: 1px solid gray;
+      }
+    }
+
+    span {
+      font-family: $font--primary;
+      color: $color--main;
+      padding: 1em;
+
     }
   }
 }
